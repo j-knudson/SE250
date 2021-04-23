@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
   * {box-sizing: border-box;}
@@ -31,9 +32,12 @@
   }
   .center {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    float: left;
     width: 50%;
+  }
+  #rightTable{
+    width: 50%;
+
   }
   a:link {
   color: white;
@@ -70,45 +74,33 @@ a:active {
           </tr>
         </table>
       </h1>
-      <table border="1" style="border-collapse: collapse; width: 22.1863%; height: 167px;" height="87">
-<tbody>
-<tr style="height: 21px;">
-<td style="width: 100%; height: 21px;">
-<p>Contact us!</p>
-</td>
-</tr>
-<tr style="height: 21px;">
-<td style="width: 100%; height: 21px;">Phone: 320-42-SINGH</td>
-</tr>
-<tr style="height: 21px;">
-<td style="width: 100%; height: 21px;">123 Made Up ST, St. Cloud</td>
-</tr>
-<tr style="height: 21px;">
-<td style="width: 100%; height: 21px;">Find us on MySpace!</td>
-</tr>
-</tbody>
-</table>
     </header>
-<div class = "content">
-<img src = "/images/PizzaLogo.png"; class = "center">
-<table border="1" style="border-collapse: collapse; width: 57.6708%;" height="331">
-<tbody>
-<tr>
-<td style="width: 100%;">
-<h2>Login:</h2>
-<form action="C:\Program Files (x86)\Ampps\www\Mitchell Hayen\users.php" method="post">Username: <input type="text" name="uname" /><br /><br />Password: <input type="text" name="pw" /><br /><br /><input type="submit" name="submit" value="Submit" />
-<h2>Want to create an account?</h2>
-<input type="submit" name="submit" value="Create Account" />
-<h2>Or you can choose to continue as guest</h2>
-<input type="submit" name="submit" value="Continue as Guest" /></form></td>
-</tr>
-</tbody>
-</table>
-</div>
+
 
 <!---***********************************************--->
 <!---***********************************************--->
 <!---End of Top Menu Area Put your code BELOW this--->
+<div class = "container">
+<div
+  <img src = "/images/PizzaLogo.png"; class = "center">
+
+<h1>Welcome to Singh's Squadron Pizza!</h1>
+<h2>To continue with your account, please enter your user information below</h2>
+<form action="users.php" method="post">
+    Username: <input type="text" name="uname" /><br /><br />
+    Password: <input type="text" name="pw" /><br /><br />
+    <input type="submit" name="submit" value="Submit" />
+</form>
+<h2>Want to create an account?</h2>
+<form action="createAccount.php">
+<input type="submit" value="Create Acount" />
+</form>
+
+<h2>Or you can choose to continue as guest</h2>
+<form action="guest.php">
+<input type="submit" name="submit" value="Continue as Guest" />
+</form>
+</div>
 
 
 
