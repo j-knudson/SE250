@@ -77,11 +77,17 @@ a:active {
             Username: <input type="text" name="uname" /><br /><br />
             Password: <input type="text" name="pw" /><br /><br />
             <input type="submit" name="submit" value="Submit" />
-            <h2>Want to create an account?</h2>
-            <input type="submit" name="submit" value="Create Account" />
+        </form>
+			<h2>Want to create an account?</h2>
+            <form action="createAccount.php">
+				<input type="submit" value="Create Acount" />
+			</form>
+			
             <h2>Or you can choose to continue as guest</h2>
-            <input type="submit" name="submit" value="Continue as Guest" />
-            </form>
+            <form action="guest.php">
+			<input type="submit" name="submit" value="Continue as Guest" />
+			</form>
+           
 
 
 
