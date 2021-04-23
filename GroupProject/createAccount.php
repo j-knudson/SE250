@@ -113,7 +113,7 @@ button:hover {
 }
 
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
+.cancelbtn, .signupbtn, .guestbtn {
   float: left;
   width: 50%;
 }
@@ -170,18 +170,15 @@ if($action = "save") {
  file_put_contents($targetFolder."order.txt", $myText);
 }
 */?>
-<h1> Sign Up for your Singh's Squadron Pizza Account</h1>
-<p> Please fill in this form to create your account </p>
+<h1> Guest Pizza Order </h1>
+<p> Please complete this form to receive your order details and/or for delivery </p>
+
+<p><label> <input type=radio name=mode> Carryout </label></p>
+<p><label> <input type=radio name=mode> Delivery </label></p>
 <form action="action_page.php" style="border:1px solid #ccc">
  <div class="container">
    <label for="email"><b>Email</b></label>
    <input type="text" placeholder="Enter Email" name="email" required>
-
-   <label for="psw"><b>Password</b></label>
-   <input type="password" placeholder="Enter Password" name="psw" required>
-
-   <label for="psw-repeat"><b>Repeat Password</b></label>
-   <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
 
    <label for="fname"><b>First name</b></label>
    <input type="text" placeholder="Enter First Name" name="fname" required>
@@ -256,15 +253,11 @@ if($action = "save") {
 <label for="zip"><b>Zip Code</b></label>
 <input type="text" placeholder="Zip Code" name="zip" required>
 
-   <label>
-     <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-   </label>
 
-   <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
    <div class="clearfix">
      <button type="button" class="cancelbtn">Cancel</button>
-     <button type="submit" class="signupbtn">Sign Up</button>
+     <button type="submit" class="guestbtn">Continue</button>
    </div>
  </div>
 </form>
