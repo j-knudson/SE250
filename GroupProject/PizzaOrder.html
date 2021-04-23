@@ -2,7 +2,6 @@
 <html>
 <title> Order </title>
 <head>
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <style>
     table, th, td{
       border: 1px solid black;
@@ -60,13 +59,12 @@ a:active {
 }
   </style>
   </head>
-<h1>New Order Page </h1>
 <body>
     <header>
       <h1>
         <table id = "topMenu">
           <tr>
-            <th><a href="http://localhost/Pizzabase.html"><img src = "/images/LogotWT.png" style="height:100px;">Home</a></th>
+
             <th bgcolor="#308d05";><a href="http://localhost/PizzaOrder.html">Order</a> </th>
             <th><a href="http://localhost/PizzaMenu.html">Menu</a></th>
             <th><a href="http://localhost/PizzaLogin.html">Login</a> </th>
@@ -81,52 +79,44 @@ a:active {
 <!---***********************************************--->
 <!---End of Top Menu Area Put your code BELOW this--->
                <!---//https://tryphp.w3schools.com/showphp.php?filename=demo_form_validation_required --->
-<?php
-$action = $_GET["action"];
-$myText = $_POST["mytext"];
 
-if($action = "save") {
- $targetFolder = "/data";
- file_put_contents($targetFolder."order.txt", $myText);
-}
-?>
 
-<form action="?action=save" name="PizzaForm" method="post">  <!---//https://www.w3schools.com/php/php_form_validation.asp --->
+<form action="PizzaForm.php" method="post">  <!---//https://www.w3schools.com/php/php_form_validation.asp --->
  <!---<p><label>Customer name: <input></label></p>--->
  <fieldset>
   <legend><strong> Pizza Size </strong> </legend>
-  <p><label> <input type=radio name=size> Small </label></p>
-  <p><label> <input type=radio name=size> Medium </label></p>
-  <p><label> <input type=radio name=size> Large </label></p>
+  <p><input type=radio name=size value="Small" checked="check">Small</p>
+  <p><label> <input type=radio name=size value="Medium" checked="check"> Medium </label></p>
+  <p><label> <input type=radio name=size value="Large" checked="check"> Large </label></p>
  </fieldset>
 <fieldset>
  <legend><strong> Crust </strong> </legend>
- <p><label><input type=radio name = crust>Thin Crust</label></p>
- <p><label><input type=radio name = crust> Hand-Tossed Crust </label></p>
- <p><label><input type=radio name= crust> Deep Dish </label></p>
+ <p><label><input type=radio name = crust value="Thin" checked="check">Thin Crust</label></p>
+ <p><label><input type=radio name = crust value="Hand-Tossed" checked="check"> Hand-Tossed Crust </label></p>
+ <p><label><input type=radio name= crust value="Deep Dish" checked="check">Deep Dish Crust </label></p>
  </fieldset>
  <fieldset>
   <legend><strong> Sauce </strong> </legend>
-  <p><label><input type=radio name = sauce>Less Sauce</label></p>
-  <p><label><input type=radio name = sauce>Normal Sauce</label></p>
-  <p><label><input type=radio name= sauce>More Sauce</label></p>
+  <p><label><input type=radio name = sauce value="Less Sauce" checked="check">Less Sauce</label></p>
+  <p><label><input type=radio name = sauce value="Normal Sauce" checked="check">Normal Sauce</label></p>
+  <p><label><input type=radio name= sauce value="More Sauce" checked="check">More Sauce</label></p>
   </fieldset>
   <fieldset>
    <legend><strong> Cheese </strong> </legend>
-   <p><label><input type=radio name = cheese>Less Cheese</label></p>
-   <p><label><input type=radio name = cheese>Normal Cheese</label></p>
-   <p><label><input type=radio name= cheese>More Cheese</label></p>
+   <p><label><input type=radio name = cheese value="Less Sauce" checked="check">Less Cheese</label></p>
+   <p><label><input type=radio name = cheese value="Normal Sauce" checked="check">Normal Cheese</label></p>
+   <p><label><input type=radio name= cheese value="More Sauce" checked="check">More Cheese</label></p>
    </fieldset>
    <fieldset>
      <legend><strong> Pizza Toppings</strong></legend>
-     <p><label> <input type = checkbox> Pepperoni </label></p>
-     <p><label> <input type = checkbox> Sausage </label></p>
-     <p><label> <input type = checkbox> Mushroom </label></p>
-     <p><label> <input type = checkbox> Pineapple </label></p>
-     <p><label> <input type = checkbox> Jalape&ntilde;o </label></p>
-     <p><label> <input type = checkbox> Onion </label></p>
+     <p><label> <input type = checkbox name ="toppings[]" value = "Pepperoni"> Pepperoni </label></p>
+     <p><label> <input type = checkbox name ="toppings[]" value = "Sausage"> Sausage </label></p>
+     <p><label> <input type = checkbox name ="toppings[]" value = "Mushroom">Mushroom </label></p>
+     <p><label> <input type = checkbox name ="toppings[]" value = "Pineapple">> Pineapple </label></p>
+     <p><label> <input type = checkbox name ="toppings[]" value = "Jalape&ntilde;o">> Jalape&ntilde;o </label></p>
+     <p><label> <input type = checkbox name ="toppings[]" value = "Onion">> Onion </label></p>
     </fieldset>
-    <p><button>Add pizza to cart </button><p>
+    <input type ="submit" value="Add pizza to cart">
     <p><label>Preferred delivery time: <input type=time min="11:00" max="21:00" step="900"></label></p>
     <p><label>Delivery instructions: <textarea></textarea></label></p>
     <p><button>Checkout</button><p>
