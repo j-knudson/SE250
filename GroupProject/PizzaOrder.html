@@ -2,6 +2,7 @@
 <html>
 <title> Order </title>
 <head>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <style>
     table, th, td{
       border: 1px solid black;
@@ -65,7 +66,7 @@ a:active {
       <h1>
         <table id = "topMenu">
           <tr>
-
+            <th><a href="http://localhost/Pizzabase.html"><img src = "/images/LogotWT.png" style="height:100px;">Home</a></th>
             <th bgcolor="#308d05";><a href="http://localhost/PizzaOrder.html">Order</a> </th>
             <th><a href="http://localhost/PizzaMenu.html">Menu</a></th>
             <th><a href="http://localhost/PizzaLogin.html">Login</a> </th>
@@ -79,46 +80,57 @@ a:active {
 <!---***********************************************--->
 <!---***********************************************--->
 <!---End of Top Menu Area Put your code BELOW this--->
-<p style="text-align: center;"></p>
-<table border="1" style="border-collapse: collapse; width: 72.0853%; height: 454px;" height="418">
-<tbody>
-<tr style="height: 197px;">
-<td style="width: 50%; text-align: center; height: 197px;">
-<p style="text-align: center;">
-	<strong>Pizza Crust:</strong></p>
-		<p style="text-align: center;">
-		<input type="checkbox" id="Crust1" name="Crust1" value="Thin" />&nbsp;<b>Thin Crust</b><br />
-		<input type="checkbox" id="Crust2" name="Crust2" value="Normal" /><b>Normal Crust</b><br />
-		<input type="checkbox" id="Crust3" name="Crust3" value="Deep" />&nbsp;<b>Deep Dish</b></p>
-	</td>
-<td style="width: 50%; text-align: center; height: 197px;">
-<p style="text-align: center;">
-	<strong>Pizza Sauce:</strong></p>
-		<input type="checkbox" id="Sauce1" name="Sauce1" value="Less" /> <label for="Sauce1"> Less Sauce</label><br />
-		<input type="checkbox" id="Sauce2" name="Sauce2" value="Normal" /> <label for="Sauce2"> Normal Sauce</label><br />
-		<input type="checkbox" id="Sauce3" name="Sauce3" value="More" /> <label for="Sauce3"> Extra Sauce</label></td>
-	</tr>
-<tr style="height: 140px;">
-<td style="width: 50%; text-align: center; height: 257px;">
-<p style="text-align: center;">
-	<strong>Cheese:</strong></p>
-		<input type="checkbox" id="Cheese1" name="Cheese1" value="Less" /> <label for="Cheese1"> Less Cheese</label><br />
-		<input type="checkbox" id="Cheese2" name="Cheese2" value="Normal" /> <label for="Sauce2"> Normal Cheese</label><br />
-		<input type="checkbox" id="Cheese3" name="Cheese3" value="Extra" /> <label for="Cheese3"> Extra Cheese</label></td>
-<td style="width: 50%; text-align: center; height: 257px;">
-<p style="text-align: center;">
-	<strong>Toppings:</strong></p>
-<p>		<input type="checkbox" id="Top1" name="Top1" value="Pepperoni" /> <label for="Top1"> Pepperoni</label><br />
-		<input type="checkbox" id="Top2" name="Top2" value="Sausage" /> <label for="Top2"> Sausage</label><br />
-		<input type="checkbox" id="Top3" name="Top3" value="Mushroom" /> <label for="Top3"> Mushrooms</label></p>
-<p>		<input type="checkbox" id="Top4" name="Top4" value="Pineapple" /> <label for="Top4"> Pineapple</label><br />
-		<input type="checkbox" id="Top5" name="Top5" value="Jalapeneo" /> <label for="Top5"> Jalape&ntilde;o</label><br />
-		<input type="checkbox" id="Top6" name="Top6" value="Onion" /> <label for="Top6"> Onion</label></p>
-</td>
-</tr>
-</tbody>
-</table>
+               <!---//https://tryphp.w3schools.com/showphp.php?filename=demo_form_validation_required --->
+<?php
+$action = $_GET["action"];
+$myText = $_POST["mytext"];
 
+if($action = "save") {
+ $targetFolder = "/data";
+ file_put_contents($targetFolder."order.txt", $myText);
+}
+?>
+
+<form action="?action=save" name="PizzaForm" method="post">  <!---//https://www.w3schools.com/php/php_form_validation.asp --->
+ <!---<p><label>Customer name: <input></label></p>--->
+ <fieldset>
+  <legend><strong> Pizza Size </strong> </legend>
+  <p><label> <input type=radio name=size> Small </label></p>
+  <p><label> <input type=radio name=size> Medium </label></p>
+  <p><label> <input type=radio name=size> Large </label></p>
+ </fieldset>
+<fieldset>
+ <legend><strong> Crust </strong> </legend>
+ <p><label><input type=radio name = crust>Thin Crust</label></p>
+ <p><label><input type=radio name = crust> Hand-Tossed Crust </label></p>
+ <p><label><input type=radio name= crust> Deep Dish </label></p>
+ </fieldset>
+ <fieldset>
+  <legend><strong> Sauce </strong> </legend>
+  <p><label><input type=radio name = sauce>Less Sauce</label></p>
+  <p><label><input type=radio name = sauce>Normal Sauce</label></p>
+  <p><label><input type=radio name= sauce>More Sauce</label></p>
+  </fieldset>
+  <fieldset>
+   <legend><strong> Cheese </strong> </legend>
+   <p><label><input type=radio name = cheese>Less Cheese</label></p>
+   <p><label><input type=radio name = cheese>Normal Cheese</label></p>
+   <p><label><input type=radio name= cheese>More Cheese</label></p>
+   </fieldset>
+   <fieldset>
+     <legend><strong> Pizza Toppings</strong></legend>
+     <p><label> <input type = checkbox> Pepperoni </label></p>
+     <p><label> <input type = checkbox> Sausage </label></p>
+     <p><label> <input type = checkbox> Mushroom </label></p>
+     <p><label> <input type = checkbox> Pineapple </label></p>
+     <p><label> <input type = checkbox> Jalape&ntilde;o </label></p>
+     <p><label> <input type = checkbox> Onion </label></p>
+    </fieldset>
+    <p><button>Add pizza to cart </button><p>
+    <p><label>Preferred delivery time: <input type=time min="11:00" max="21:00" step="900"></label></p>
+    <p><label>Delivery instructions: <textarea></textarea></label></p>
+    <p><button>Checkout</button><p>
+</form>
 
 
 
