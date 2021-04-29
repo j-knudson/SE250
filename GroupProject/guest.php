@@ -2,6 +2,7 @@
 <html>
 <title> Order </title>
 <head>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <style>
     table, th, td{
       border: 1px solid black;
@@ -144,11 +145,11 @@ button:hover {
       <h1>
         <table id = "topMenu">
           <tr>
-
-            <th><a href="http://localhost/PizzaOrder.html">Order</a> </th>
-            <th><a href="http://localhost/PizzaMenu.html">Menu</a></th>
-            <th><a href="http://localhost/PizzaLogin.html">Login</a> </th>
-            <th><a href="http://localhost/PizzaCart.html"><img src = "/images/cart.png" style="width:100px;height:100px;"</th>
+            <th><a href="http://localhost/Pizzabase.php"><img src = "/images/LogotWT.png" style="height:100px;">Home</a></th>
+            <th><a href="http://localhost/PizzaOrder.php">Order</a> </th>
+            <th><a href="http://localhost/PizzaMenu.php">Menu</a></th>
+            <th><a href="http://localhost/PizzaLogin.php">Login</a> </th>
+            <th><a href="http://localhost/PizzaCart.php"><img src = "/images/cart.png" style="width:100px;height:100px;"</th>
           </tr>
         </table>
 		</h1>
