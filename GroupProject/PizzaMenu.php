@@ -14,7 +14,7 @@
     min-height: calc(100vh - 170px);
   }
   footer{
-    height: 70px; 
+    height: 70px;
   }
   #topMenu{
     width: 100%;
@@ -56,17 +56,16 @@ a:active {
 }
   </style>
   </head>
-<h1>Menu Page </h1>
 <body>
     <header>
       <h1>
         <table id = "topMenu">
           <tr>
-			<th><a href="http://localhost/Pizzabase.html"><img src = "/images/LogotWT.png" style="height:100px;">Home</a></th>
-            <th><a href="http://localhost/PizzaOrder.html">Order</a> </th>
-            <th bgcolor="#308d05";><a href="http://localhost/PizzaMenu.html">Menu</a></th>
-            <th><a href="http://localhost/PizzaLogin.html">Login</a> </th>
-            <th><a href="http://localhost/PizzaCart.html"><img src = "/images/cart.png" style="width:100px;height:100px;"</th>
+			<th><a href="http://localhost/Pizzabase.php"><img src = "/images/LogotWT.png" style="height:100px;">Home</a></th>
+            <th><a href="http://localhost/PizzaOrder.php">Order</a> </th>
+            <th bgcolor="#308d05";><a href="http://localhost/PizzaMenu.php">Menu</a></th>
+            <th><a href="http://localhost/PizzaLogin.php">Login</a> </th>
+            <th><a href="http://localhost/PizzaCart.php"><img src = "/images/cart.png" style="width:100px;height:100px;"</th>
           </tr>
         </table>
 		</h1>
