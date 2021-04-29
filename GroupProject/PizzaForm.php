@@ -1,5 +1,7 @@
 <html>
 <body>
+<?php $_SESSION[pizzaOrdered]=array() ?>
+
 
 <h1> Your pizza selection: </h1><br>
 <?php
@@ -9,6 +11,7 @@ if(isset($_POST['size'])){
 	$pizza_size= "No Button Selected";
 }
 echo 'Size: ' . $pizza_size;
+array_push($_SESSION[pizzaOrdered],$pizza_size);
 ?>
 <br>
 
@@ -20,6 +23,7 @@ if(isset($_POST['crust'])){
 	$crust_type= "No Button Selected";
 }
 echo 'Crust: ' . $crust_type;
+array_push($_SESSION[pizzaOrdered],$crust_type);
 ?><br>
 
 <?php
@@ -55,6 +59,20 @@ else
 echo "You haven't selected any toppings";
 }
 ?>
+
+
+
+<p>  Testing array printing </p> <br>
+<?php  //Display contents of Cart
+
+$max=sizeof($_SESSION['pizzaOrdered']);
+//echo $max;
+for($i=0; $i<$max; $i++) {
+  echo $pizzaOrdered[$i];
+  echo "<br>";
+}
+
+ ?>
 
 
 
