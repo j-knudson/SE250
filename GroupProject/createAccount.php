@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title> Order </title>
+<title> Create Account </title>
 <head>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <style>
@@ -113,7 +113,7 @@ button:hover {
 }
 
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn, .guestbtn {
+.cancelbtn, .signupbtn {
   float: left;
   width: 50%;
 }
@@ -139,17 +139,16 @@ button:hover {
 
   </style>
   </head>
-<h1>Create Account Page </h1>
 <body>
     <header>
       <h1>
         <table id = "topMenu">
           <tr>
-            <th><a href="http://localhost/Pizzabase.html"><img src = "/images/LogotWT.png" style="height:100px;">Home</a></th>
-            <th><a href="http://localhost/PizzaOrder.html">Order</a> </th>
-            <th><a href="http://localhost/PizzaMenu.html">Menu</a></th>
-            <th><a href="http://localhost/PizzaLogin.html">Login</a> </th>
-            <th><a href="http://localhost/PizzaCart.html"><img src = "/images/cart.png" style="width:100px;height:100px;"</th>
+            <th><a href="http://localhost/Pizzabase.php"><img src = "/images/LogotWT.png" style="height:100px;">Home</a></th>
+            <th><a href="http://localhost/PizzaOrder.php">Order</a> </th>
+            <th><a href="http://localhost/PizzaMenu.php">Menu</a></th>
+            <th><a href="http://localhost/PizzaLogin.php">Login</a> </th>
+            <th><a href="http://localhost/PizzaCart.php"><img src = "/images/cart.png" style="width:100px;height:100px;"</th>
           </tr>
         </table>
 		</h1>
@@ -161,109 +160,158 @@ button:hover {
 <!---End of Top Menu Area Put your code BELOW this--->
                <!---//https://tryphp.w3schools.com/showphp.php?filename=demo_form_validation_required --->
 
-  <?php/*
-$action = $_GET["action"];
-$myText = $_POST["mytext"];
-
-if($action = "save") {
- $targetFolder = "/data";
- file_put_contents($targetFolder."order.txt", $myText);
+<?php
+require_once 'loginFile.php';
+$conn = new mysqli($hn, $un, $pw, $db);
+if ($conn->connect_error) die("Fatal Error");
+if (isset($_POST['delete']) && isset($_POST['email']))
+{
+  $email = get_post($conn, 'email');
+  $query = "DELETE FROM user_account WHERE email='$email'";
+  $result = $conn->query($query);
+  if (!$result) echo "DELETE failed<br><br>";
 }
-*/?>
-<h1> Guest Pizza Order </h1>
-<p> Please complete this form to receive your order details and/or for delivery </p>
+if (!empty($_POST['email']) &&
+    !empty($_POST['password']) &&
+    !empty($_POST['first']) &&
+    !empty($_POST['last']))
+{
+  $email = get_post($conn, 'email');
+  $password = get_post($conn, 'password');
+  $first = get_post($conn, 'first');
+  $last = get_post($conn, 'last');
+  $query = "INSERT INTO user_account VALUES" .
+  "('$email', '$password', '$first', '$last')";
+  $result = $conn->query($query);
+  if (!$result) echo "INSERT failed<br><br>";
+}
+?>
+  <h1> Sign Up for your Singh's Squadron Pizza Account</h1>
+  <p> Please fill in this form to create your account </p>
+<?php
+echo <<<_END
+  <form action="createAccount.php" method="post" style="border:1px solid #ccc">
+  <div class="container">
+  <label for="email"><b>Email</b></label>
+  <input type="text" placeholder="Enter Email" name="email" required>
 
-<p><label> <input type=radio name=mode> Carryout </label></p>
-<p><label> <input type=radio name=mode> Delivery </label></p>
-<form action="action_page.php" style="border:1px solid #ccc">
- <div class="container">
-   <label for="email"><b>Email</b></label>
-   <input type="text" placeholder="Enter Email" name="email" required>
 
-   <label for="fname"><b>First name</b></label>
-   <input type="text" placeholder="Enter First Name" name="fname" required>
+  <label for="password"><b>Password</b></label>
+  <input type="text" placeholder="Enter Password" name="password" required>
 
-   <label for="lname"><b>Last name</b></label>
-   <input type="text" placeholder="Enter Last Name" name="lname" required>
+  <label for="first"><b>First name</b></label>
+  <input type="text" placeholder="Enter First Name" name="first" required>
+
+  <label for="last"><b>Last name</b></label>
+  <input type="text" placeholder="Enter Last Name" name="last" required>
+  </div>
+  <p><strong> Please Enter your address </strong></p>
+   <div class="container"
+    <label for="street"><b>Address</b></label>
+    <input type="text" placeholder="Street address" name="street">
+
+    <label for="city"><b>City</b></label>
+    <input type="htext" placeholder="City" name="city">
+
+    <label for="State"><b>State</b></label>
+    <select>
+          <option value="NA">None</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="DC">District Of Columbia</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+         </select>
+
+ <label for="zip"><b>Zip Code</b></label>
+ <input type="text" placeholder="Zip Code" name="zip">
+ <div class="clearfix">
+   <button type="button" class="cancelbtn">Cancel</button>
+   <button type="submit" value="ADD RECORD" class="signupbtn">Sign Up</button>
  </div>
-<p><strong> Please Enter your address </strong></p>
-  <div class="container"
-   <label for="street"><b>Address</b></label>
-   <input type="text" placeholder="Street address" name="street" required>
-
-   <label for="city"><b>City</b></label>
-   <input type="htext" placeholder="City" name="city" required>
-
-   <label for="State"><b>State</b></label>
-   <select>
-  <option value="NA">None</option>
-	<option value="AL">Alabama</option>
-	<option value="AK">Alaska</option>
-	<option value="AZ">Arizona</option>
-	<option value="AR">Arkansas</option>
-	<option value="CA">California</option>
-	<option value="CO">Colorado</option>
-	<option value="CT">Connecticut</option>
-	<option value="DE">Delaware</option>
-	<option value="DC">District Of Columbia</option>
-	<option value="FL">Florida</option>
-	<option value="GA">Georgia</option>
-	<option value="HI">Hawaii</option>
-	<option value="ID">Idaho</option>
-	<option value="IL">Illinois</option>
-	<option value="IN">Indiana</option>
-	<option value="IA">Iowa</option>
-	<option value="KS">Kansas</option>
-	<option value="KY">Kentucky</option>
-	<option value="LA">Louisiana</option>
-	<option value="ME">Maine</option>
-	<option value="MD">Maryland</option>
-	<option value="MA">Massachusetts</option>
-	<option value="MI">Michigan</option>
-	<option value="MN">Minnesota</option>
-	<option value="MS">Mississippi</option>
-	<option value="MO">Missouri</option>
-	<option value="MT">Montana</option>
-	<option value="NE">Nebraska</option>
-	<option value="NV">Nevada</option>
-	<option value="NH">New Hampshire</option>
-	<option value="NJ">New Jersey</option>
-	<option value="NM">New Mexico</option>
-	<option value="NY">New York</option>
-	<option value="NC">North Carolina</option>
-	<option value="ND">North Dakota</option>
-	<option value="OH">Ohio</option>
-	<option value="OK">Oklahoma</option>
-	<option value="OR">Oregon</option>
-	<option value="PA">Pennsylvania</option>
-	<option value="RI">Rhode Island</option>
-	<option value="SC">South Carolina</option>
-	<option value="SD">South Dakota</option>
-	<option value="TN">Tennessee</option>
-	<option value="TX">Texas</option>
-	<option value="UT">Utah</option>
-	<option value="VT">Vermont</option>
-	<option value="VA">Virginia</option>
-	<option value="WA">Washington</option>
-	<option value="WV">West Virginia</option>
-	<option value="WI">Wisconsin</option>
-	<option value="WY">Wyoming</option>
-</select>
-
-<label for="zip"><b>Zip Code</b></label>
-<input type="text" placeholder="Zip Code" name="zip" required>
-
-
-
-   <div class="clearfix">
-     <button type="button" class="cancelbtn">Cancel</button>
-     <button type="submit" class="guestbtn">Continue</button>
-   </div>
- </div>
+</div>
 </form>
+_END;
+$query = "SELECT * FROM user_account";
+$result = $conn->query($query);
+if (!$result) die ("Database access failed");
+$rows = $result->num_rows;
+for ($j = 0 ; $j < $rows ; ++$j)
+{
+$row = $result->fetch_array(MYSQLI_NUM);
+$r0 = htmlspecialchars($row[0]);
+$r1 = htmlspecialchars($row[1]);
+$r2 = htmlspecialchars($row[2]);
+$r3 = htmlspecialchars($row[3]);
+//$r4 = htmlspecialchars($row[4]);
 
+echo <<<_END
+<pre>
+Email $r0
+Password $r1
+First Name $r2
+Last Name $r3
 
-
+</pre>
+<form action='createAccount.php' method='post'>
+<input type='hidden' name='delete' value='yes'>
+<input type='hidden' name='email' value='$r0'>
+<input type='submit' value='DELETE RECORD'></form>
+_END;
+}
+$result->close();
+$conn->close();
+function get_post($conn, $var)
+{
+return $conn->real_escape_string($_POST[$var]);
+}
+?>
 <!---Start of Footer Area Put your code ABOVE this--->
 <!---***********************************************--->
 <!---***********************************************--->
