@@ -2,6 +2,7 @@
 <html>
 <title> Order </title>
 <head>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <style>
     table, th, td{
       border: 1px solid black;
@@ -64,11 +65,11 @@ a:active {
       <h1>
         <table id = "topMenu">
           <tr>
-
-            <th bgcolor="#308d05";><a href="http://localhost/PizzaOrder.html">Order</a> </th>
-            <th><a href="http://localhost/PizzaMenu.html">Menu</a></th>
-            <th><a href="http://localhost/PizzaLogin.html">Login</a> </th>
-            <th><a href="http://localhost/PizzaCart.html"><img src = "/images/cart.png" style="width:100px;height:100px;"</th>
+            <th><a href="http://localhost/Pizzabase.php"><img src = "/images/LogotWT.png" style="height:100px;">Home</a></th>
+            <th bgcolor="#308d05";><a href="http://localhost/PizzaOrder.php">Order</a> </th>
+            <th><a href="http://localhost/PizzaMenu.php">Menu</a></th>
+            <th><a href="http://localhost/PizzaLogin.php">Login</a> </th>
+            <th><a href="http://localhost/PizzaCart.php"><img src = "/images/cart.png" style="width:100px;height:100px;"</th>
           </tr>
         </table>
 		</h1>
@@ -103,18 +104,18 @@ a:active {
   </fieldset>
   <fieldset>
    <legend><strong> Cheese </strong> </legend>
-   <p><label><input type=radio name = cheese value="Less Sauce" checked="check">Less Cheese</label></p>
-   <p><label><input type=radio name = cheese value="Normal Sauce" checked="check">Normal Cheese</label></p>
-   <p><label><input type=radio name= cheese value="More Sauce" checked="check">More Cheese</label></p>
+   <p><label><input type=radio name = cheese value="Less Cheese" checked="check">Less Cheese</label></p>
+   <p><label><input type=radio name = cheese value="Normal Cheese" checked="check">Normal Cheese</label></p>
+   <p><label><input type=radio name= cheese value="More Cheese" checked="check">More Cheese</label></p>
    </fieldset>
    <fieldset>
      <legend><strong> Pizza Toppings</strong></legend>
      <p><label> <input type = checkbox name ="toppings[]" value = "Pepperoni"> Pepperoni </label></p>
      <p><label> <input type = checkbox name ="toppings[]" value = "Sausage"> Sausage </label></p>
      <p><label> <input type = checkbox name ="toppings[]" value = "Mushroom">Mushroom </label></p>
-     <p><label> <input type = checkbox name ="toppings[]" value = "Pineapple">> Pineapple </label></p>
-     <p><label> <input type = checkbox name ="toppings[]" value = "Jalape&ntilde;o">> Jalape&ntilde;o </label></p>
-     <p><label> <input type = checkbox name ="toppings[]" value = "Onion">> Onion </label></p>
+     <p><label> <input type = checkbox name ="toppings[]" value = "Pineapple"> Pineapple </label></p>
+     <p><label> <input type = checkbox name ="toppings[]" value = "Jalape&ntilde;o"> Jalape&ntilde;o </label></p>
+     <p><label> <input type = checkbox name ="toppings[]" value = "Onion"> Onion </label></p>
     </fieldset>
     <input type ="submit" value="Add pizza to cart">
     <p><label>Preferred delivery time: <input type=time min="11:00" max="21:00" step="900"></label></p>
