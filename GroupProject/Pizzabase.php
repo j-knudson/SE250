@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+//start a session
+session_start();
+?>
 <html>
 <head>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -66,11 +70,11 @@ a:active {
       <h1>
         <table id = "topMenu">
           <tr>
-            <th><a href="http://localhost/Pizzabase.html"><img src = "/images/LogotWT.png" style="height:100px;">Home</a></th>
-            <th><a href="http://localhost/PizzaOrder.html">Order</a> </th>
-            <th><a href="http://localhost/PizzaMenu.html">Menu</a></th>
-            <th><a href="http://localhost/PizzaLogin.html">Login</a> </th>
-            <th><a href="http://localhost/PizzaCart.html"><img src = "/images/cart.png" style="width:100px;height:100px;"</a></th>
+            <th><a href="http://localhost/Pizzabase.php"><img src = "/images/LogotWT.png" style="height:100px;">Home</a></th>
+            <th><a href="http://localhost/PizzaOrder.php">Order</a> </th>
+            <th><a href="http://localhost/PizzaMenu.php">Menu</a></th>
+            <th><a href="http://localhost/PizzaLogin.php">Login</a> </th>
+            <th><a href="http://localhost/PizzaCart.php"><img src = "/images/cart.png" style="width:100px;height:100px;"</a></th>
           </tr>
         </table>
       </h1>
@@ -81,7 +85,7 @@ a:active {
 <!---***********************************************--->
 <!---End of Top Menu Area Put your code BELOW this--->
 <div class = "container">
-<div
+
   <img src = "/images/PizzaLogo.png"; class = "center">
 
 <h1>Welcome to Singh's Squadron Pizza!</h1>
